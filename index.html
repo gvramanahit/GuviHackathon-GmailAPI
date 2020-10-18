@@ -12,10 +12,71 @@
         table th {
             width: auto !important;
         }
+
+        .logo{
+            width: 200px;
+            height: 100px;
+        }
+
+        .logo1{
+            width: 50px;
+            height: 50px;
+        }
+
+        .divPadding{
+            padding: 30px;
+            font-size: 33px;
+            color: gray;
+            text-align: center;
+        }
+
+        .divInbox{
+            font-size: 33px;
+            color: gray;
+            text-align: center;
+        }
+
+        .divWelcome{
+            padding: 35px;
+            font-size: 20px;
+            color: gray;
+            text-align: right;
+        }
     </style>
   </head>
   <body>
-    <p>Gmail API Quickstart</p>
+
+       <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Compose</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form onsubmit="return sendEmail();">
+              <div class="modal-body">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="compose-to" placeholder="To" required />
+                </div>
+      
+                <div class="form-group">
+                  <input type="text" class="form-control" id="compose-subject" placeholder="Subject" required />
+                </div>
+      
+                <div class="form-group">
+                  <textarea class="form-control" id="compose-message" placeholder="Message" rows="10" required></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" id="send-button" class="btn btn-primary">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
